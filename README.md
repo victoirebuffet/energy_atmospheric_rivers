@@ -10,10 +10,16 @@ https://github.com/victoirebuffet/energy_atmospheric_rivers/
 
 ## Running the algorithm
 
-1 - Generate the config file according to your needs :
+Run this algorithm in two steps : 
+
+1 - If you wish to create the json config file using a python script, modify the ```
+ write_config.py
+``` script according to your needs  and then execute this : 
 ```
-python generate_config.py
+python write_config.py
 ```
+You can skip this step by just creating a .json config file with a text editor, in a similar way as the one provided in the main branch.
+
 2 - Run the main script :
 ```
  python main.py config.json
