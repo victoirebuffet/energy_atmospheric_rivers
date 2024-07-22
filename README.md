@@ -1,4 +1,4 @@
-# Energy Atmospheric Rivers - Victoire Buffet *et al.*
+# Energy Atmospheric Rivers - V. Buffet supervised by B. Pohl, V. Favier (M2 internship)
 
 An energy atmospheric rivers (AR) detection algorithm for global studies. The algorithm follows the method of Wille *et al.* (2021) vIVT and IWV atmospheric river detection algorithm, implemented in Python. It is applied to latent heat (LH) on one hand and sensible heat (SH) on the other hand, either based on their vertically integrated meridional transport (v**LH**T and v**SH**T) — which is analogous to Wille *et al.* (2021) vIVT scheme — or their vertically integrated value (I**LH** and I**SH**), which is analogous to Wille *et al.* (2021) IWV scheme.
 
