@@ -8,6 +8,7 @@ Created on Wed Jul 17 14:35:06 2024
 
 import xarray as xr
 import os
+import numpy as np
 
 # Define constants
 latent_heat_vaporization = 2.5008E6  # Latent heat of vaporization
@@ -60,10 +61,10 @@ def get_percentile(schemes, years, scan_extent, percentile=98, hemisphere='ant',
             if scheme in ['vLHT', 'vSHT']:
                 if hemisphere == 'ant':
                     combined_ds = combined_ds.sel(latitude=slice(-scan_extent_sorted[0], -scan_extent_sorted[1]))
-                    combined_ds = xr.where(combined_ds < 0, -combined_ds, combined_ds * 0.0)
+                    combined_ds = xr.where(combined_ds < 0, -combined_ds, np.nan)
                 elif hemisphere == 'arc':
                     combined_ds = combined_ds.sel(latitude=slice(scan_extent_sorted[1], scan_extent_sorted[0]))
-                    combined_ds = xr.where(combined_ds > 0, combined_ds, combined_ds * 0.0)
+                    combined_ds = xr.where(combined_ds > 0, combined_ds, np.nan)
                 else:
                     raise ValueError(f"Unknown hemisphere: {hemisphere}")
             else:
