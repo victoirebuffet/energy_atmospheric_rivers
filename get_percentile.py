@@ -61,10 +61,10 @@ def get_percentile(schemes, years, scan_extent, percentile=98, hemisphere='ant',
             if scheme in ['vLHT', 'vSHT']:
                 if hemisphere == 'ant':
                     combined_ds = combined_ds.sel(latitude=slice(-scan_extent_sorted[0], -scan_extent_sorted[1]))
-                    combined_ds = xr.where(combined_ds < 0, -combined_ds, np.nan)
+                    combined_ds = xr.where(combined_ds < 0, -combined_ds, 0)
                 elif hemisphere == 'arc':
                     combined_ds = combined_ds.sel(latitude=slice(scan_extent_sorted[1], scan_extent_sorted[0]))
-                    combined_ds = xr.where(combined_ds > 0, combined_ds, np.nan)
+                    combined_ds = xr.where(combined_ds > 0, combined_ds, 0)
                 else:
                     raise ValueError(f"Unknown hemisphere: {hemisphere}")
             else:
