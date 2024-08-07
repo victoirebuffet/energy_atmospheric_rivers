@@ -135,7 +135,6 @@ def extract_enar(source_path, year, dir_path, scheme, scan_extent, percentile, h
             ds = ds_open.copy()
             
         ds_open.close()
-        ds = xr.where(ds == 0.0, np.nan, ds)  # null flux set to NaN to discard non-poleward transports
 
         excess = ds - ds_per
         ds.close()
